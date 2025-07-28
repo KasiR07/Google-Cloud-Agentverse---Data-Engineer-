@@ -1,0 +1,1 @@
+Battle Report ID: br_734. A lone adventurer, "Elara," a skilled "Mage," confronted a "Gravewight" in the Whispering Crypt. The creature was identified with monster ID 'gw_01' and had an estimated 120 HP. Elara achieved Victory after a grueling battle lasting 180 seconds. Her adventurer ID is adv_001.

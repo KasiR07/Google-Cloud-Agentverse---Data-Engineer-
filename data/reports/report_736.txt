@@ -1,0 +1,1 @@
+Battle Report ID: br_736. Adventurer "Boric," a "Warrior" with ID adv_002, engaged a "Cavern Crawler" (monster ID 'cc_03') in the Deep Delve. The crawler, a 'Beast' type, possessed 250 HP. The battle was a decisive Victory for Boric, lasting 300 seconds.
