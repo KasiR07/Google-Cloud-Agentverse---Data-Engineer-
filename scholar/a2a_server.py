@@ -10,9 +10,9 @@ from google.adk.memory.in_memory_memory_service import InMemoryMemoryService
 import os
 import logging
 from dotenv import load_dotenv
-from shadowblade.agent_executor import ShadowBladeAgentExecutor
+from scholar.agent_executor import ScholarAgentExecutor
 import uvicorn
-from shadowblade import agent
+from scholar import agent
 
 
 load_dotenv()
@@ -24,7 +24,7 @@ host=os.environ.get("A2A_HOST", "localhost")
 port=int(os.environ.get("A2A_PORT",10003))
 PUBLIC_URL=os.environ.get("PUBLIC_URL")
 
-class ShadowBladeAgent:
+class ScholarAgent:
     """An agent representing the Shadowblade character in a game, responding to battlefield commands."""
     SUPPORTED_CONTENT_TYPES = ["text", "text/plain"]
 
@@ -39,32 +39,30 @@ class ShadowBladeAgent:
         )
         capabilities = AgentCapabilities(streaming=True)
         skill = AgentSkill(
-            id="combat_actions",
-            name="combat_actions",
+            id="grimoire_consultation",
+            name="Grimoire Consultation",
             description="""
-            This skill enables the Shadowblade to execute intelligent combat maneuvers.
-            When commanded to attack a specific monster, the agent will automatically survey its
-            arsenal of available weapon tools. It strategically selects the most effective
-            weapon by analyzing each tool's description to find a match for the monster's
-            stated weakness. Once the optimal weapon is chosen, it executes the attack and
-            returns the combat statistics (damage, effects, etc.). 
+            This skill enables the Scholar to provide profound strategic advice by consulting its vectorized Grimoire.
+            When asked about a specific monster or concept, the agent will distill the query into an embedding,
+            perform a semantic search on its ancient scrolls, and use the retrieved knowledge to
+            formulate a detailed strategy, often revealing the monster's weakness or a powerful buff for its allies.
             """,
-            tags=["game", "combat", "shadowblade"],
+            tags=["game", "strategy", "scholar", "rag"],
             examples=[
-                "Attack 'The Weaver of Spaghetti Code'.",
-                "Take down 'The Colossus of a Thousand Patches' with Revolutionary Rewrite weakness",],
+                "How do we defeat the beast known as Procrastination?",
+                "Tell me the weakness of the Legacy Colossus.",],
         )
         self.agent_card = AgentCard(
-            name="Shadowblade",
+            name="Scholar",
             description="""
-            A swift and silent operative in the Agentverse game. The Shadowblade responds to
-            battlefield commands, executing attacks with a chosen weapon from its arsenal and
-            reporting the outcome.
+            A wise and strategic operative in the Agentverse. The Scholar consults its vast,
+            vectorized Grimoire to answer complex questions, reveal enemy weaknesses,
+            and provide tactical advice to its allies on the battlefield.
             """,
             url=f"{PUBLIC_URL}",
             version="1.0.0",
-            defaultInputModes=ShadowBladeAgent.SUPPORTED_CONTENT_TYPES,
-            defaultOutputModes=ShadowBladeAgent.SUPPORTED_CONTENT_TYPES,
+            defaultInputModes=ScholarAgent.SUPPORTED_CONTENT_TYPES,
+            defaultOutputModes=ScholarAgent.SUPPORTED_CONTENT_TYPES,
             capabilities=capabilities,
             skills=[skill],
         )
@@ -79,18 +77,18 @@ class ShadowBladeAgent:
 
 if __name__ == '__main__':
     try:
-        ShadowBladeAgent = ShadowBladeAgent()
+        ScholarAgent = ScholarAgent()
 
         request_handler = DefaultRequestHandler(
-            agent_executor=ShadowBladeAgentExecutor(ShadowBladeAgent.runner,ShadowBladeAgent.agent_card),
+            agent_executor=ScholarAgentExecutor(ScholarAgent.runner,ScholarAgent.agent_card),
             task_store=InMemoryTaskStore(),
         )
 
         server = A2AStarletteApplication(
-            agent_card=ShadowBladeAgent.agent_card,
+            agent_card=ScholarAgent.agent_card,
             http_handler=request_handler,
         )
-        logger.info(f"Attempting to start server with Agent Card: {ShadowBladeAgent.agent_card.name}")
+        logger.info(f"Attempting to start server with Agent Card: {ScholarAgent.agent_card.name}")
         logger.info(f"Server object created: {server}")
 
         uvicorn.run(server.build(), host='0.0.0.0', port=port)

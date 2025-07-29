@@ -33,7 +33,7 @@ logger.setLevel(logging.DEBUG)
 DEFAULT_USER_ID = 'self'
 
 
-class ShadowBladeAgentExecutor(AgentExecutor):
+class ScholarAgentExecutor(AgentExecutor):
     def __init__(self, runner: Runner, card: AgentCard):
         self.runner = runner
         self._card = card
@@ -113,7 +113,7 @@ class ShadowBladeAgentExecutor(AgentExecutor):
             context.context_id,
             updater,
         )
-        logger.debug('[ShadowBladeAgentExecutor] execute exiting')
+        logger.debug('[ScholarAgentExecutor] execute exiting')
 
     async def cancel(self, context: RequestContext, event_queue: EventQueue):
         """Cancel the execution for the given context.

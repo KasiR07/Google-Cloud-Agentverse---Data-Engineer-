@@ -1,0 +1,22 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args:
+  - 'build'
+  - '--tag'
+  - '${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPO_NAME}/${_IMAGE_NAME}:latest'
+  # Here is where we pass our build-time arguments to the Docker build command.
+  - '--build-arg'
+  - 'GOOGLE_CLOUD_PROJECT=${PROJECT_ID}'
+  - '--build-arg'
+  - 'GOOGLE_CLOUD_LOCATION=${_REGION}'
+  - '.'
+
+# This tells Cloud Build to store the final, forged Golem in our Artifact Registry vault.
+images:
+- '${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPO_NAME}/${_IMAGE_NAME}:latest'
+
+# This allows us to define substitutions (variables) in our run command.
+substitutions:
+  _REGION: 'us-central1'
+  _REPO_NAME: 'agentverse-repo'
+  _IMAGE_NAME: 'grimoire-inscriber'
