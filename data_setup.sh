@@ -32,12 +32,12 @@ if [ $? -eq 0 ]; then
   echo "    Instance '$INSTANCE_NAME' already exists. Skipping creation."
 else
   gcloud sql instances create $INSTANCE_NAME \
-    --database-version=POSTGRES_15 \
-    --tier=db-n1-standard-1 \
+    --database-version=POSTGRES_16 \
+    --tier=db-g1-small \
     --region=$REGION \
     --root-password="$DB_PASSWORD" \
     --storage-size=10GB \
-    --storage-auto-increase &
+    --edition=enterprise > /dev/null 2>&1 &
 
   # Capture the Process ID (PID) of the background job
   SQL_PID=$!
@@ -78,25 +78,6 @@ fi
 echo "    File uploads are complete."
 echo ""
 
-# --- 4. Await Spellbook Forging Completion ---
-# If we started the SQL instance creation, we must now wait for it to finish.
-if [ ! -z "$SQL_PID" ]; then
-    echo "--> Finalizing: Waiting for Cloud SQL instance creation (PID: $SQL_PID) to complete."
-    echo "    This can take 5-10 minutes. The script will wait here."
-    
-    # The 'wait' command pauses the script until the specified background job finishes.
-    # It will return the exit code of the background job.
-    wait $SQL_PID
-    SQL_EXIT_CODE=$?
-
-    if [ $SQL_EXIT_CODE -ne 0 ]; then
-        echo "    Error: Cloud SQL instance creation failed with exit code $SQL_EXIT_CODE."
-        echo "    Please check the logs for details."
-        exit 1
-    else
-        echo "    Success: Cloud SQL instance '$INSTANCE_NAME' is ready."
-    fi
-fi
 
 echo ""
 echo "--- Scholar's Data Environment Setup is Complete ---"
