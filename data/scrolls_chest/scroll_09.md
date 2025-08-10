@@ -1,7 +1,0 @@
-#### **Scroll 9: The Damming of Scope Creep**
-
-#### **Ancient Text:** The Hydra of "Just One More Thing" is a regenerating menace. For every small feature or request you complete, two more take its place. It seems to grow stronger with every victory against it, threatening to overwhelm the party with an endless tide of new requirements. Its Folly is that its heads are not truly new; they are all connected to the same, singular body. The debuff is not to attack the heads, but to cast **The Immutable Milestone** on the ground around it. This spell defines a sacred, unchangeable boundary for the current battle. New heads may sprout, but they cannot cross the line, rendering them harmless until the current body is slain.**Boons for the Champions:*** **For the Shadowblade:** Their buff is **Focused Intent**. Their damage is multiplied, but only against the original, defined target. Attacks against newly sprouted heads will do nothing.
-
-* **For the Summoner:** The cooldown on their **Earth Familiars (Storage)** is drastically reduced. This allows them to quickly build "walls" and "foundations" that reinforce the Immutable Milestone's boundary.
-
-* **For the Guardian:** The Guardian can cast **The Aegis of the Backlog**. This powerful shield does not block damage, but automatically catches any new "heads" and places them in a stasis field to be dealt with in a future battle, protecting the party's focus.

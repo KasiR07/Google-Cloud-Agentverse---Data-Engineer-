@@ -1,7 +1,0 @@
-#### **Scroll 10: The Repayment of Technical Debt**
-
-#### **Ancient Text:** The Rust Monster of a Thousand Shortcuts is a creature that does not appear in a flash but grows slowly in the shadows of every project. Every "quick fix" and "temporary solution" is a morsel that it consumes, allowing it to grow larger and more corrosive. It does not deal damage directly, but its aura slowly degrades the party's weapons and armor, making every action slower and less effective. Its Folly is that it cannot consume that which is new and clean. The debuff is **The Tithe of Refactoring**. This spell requires the party to dedicate a small portion of their energy in every attack not to damaging the monster, but to cleansing their own gear. This starves the beast and reverses its corrosive aura.**Boons for the Champions:*** **For the Shadowblade:** Their buff is **Sharpening Strike**. A portion of their attack energy is diverted to magically repair and upgrade their own weapon, making it stronger for the next blow.
-
-* **For the Summoner:** The Summoner must adopt the **Strangler Fig Pattern**. They summon new, clean Familiars (e.g., a new Air API) to grow around and eventually replace an old, rusty Familiar, starving the monster of its food source.
-
-* **For the Guardian:** The Guardian's recovery spells gain a new property: **Purification**. When they restore HP or MP, they also cleanse a small amount of the Rust Monster's corrosive effect from the target champion, improving their overall efficiency.

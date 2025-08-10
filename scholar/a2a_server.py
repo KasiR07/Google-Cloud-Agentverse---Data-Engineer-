@@ -25,7 +25,7 @@ port=int(os.environ.get("A2A_PORT",10003))
 PUBLIC_URL=os.environ.get("PUBLIC_URL")
 
 class ScholarAgent:
-    """An agent representing the Shadowblade character in a game, responding to battlefield commands."""
+    """An agent representing the Scholar character in a game, responding to battlefield commands."""
     SUPPORTED_CONTENT_TYPES = ["text", "text/plain"]
 
     def __init__(self):

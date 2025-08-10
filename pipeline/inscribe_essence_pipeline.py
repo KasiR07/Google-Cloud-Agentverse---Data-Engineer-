@@ -23,14 +23,8 @@ class EmbedTextBatch(beam.DoFn):
         filenames = [item[0] for item in batch]
         contents = [item[1] for item in batch]
         try:
-            result = self.client.models.embed_content(
-                model="text-embedding-005",
-                contents=contents,
-                config=EmbedContentConfig(
-                    task_type="RETRIEVAL_DOCUMENT",  # Optional
-                    output_dimensionality=768,  # Optional
-                )
-            )
+            #REPLACE-EMBEDDING-LOGIC
+            
            
             for filename, content, embedding_object in zip(filenames, contents, result.embeddings):
                 if content.strip():
