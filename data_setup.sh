@@ -33,11 +33,13 @@ if [ $? -eq 0 ]; then
 else
   gcloud sql instances create $INSTANCE_NAME \
     --database-version=POSTGRES_16 \
-    --tier=db-g1-small \
+    --tier=db-custom-1-3840 \
     --region=$REGION \
     --root-password="$DB_PASSWORD" \
     --storage-size=10GB \
-    --edition=enterprise > /dev/null 2>&1 &
+    --edition=enterprise \
+    --enable-google-ml-integration \
+    --database-flags cloudsql.enable_google_ml_integration=on > /dev/null 2>&1 &
 
   # Capture the Process ID (PID) of the background job
   SQL_PID=$!
