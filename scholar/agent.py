@@ -33,7 +33,6 @@ def grimoire_lookup(monster_name: str) -> str:
     """
     print(f"Scholar is consulting the Grimoire for: {monster_name}...")
     try:
-        # 1. Generate the embedding for the monster's name
 
         #REPLACE RAG-CONVERT EMBEDDING
 
@@ -63,23 +62,7 @@ def grimoire_lookup(monster_name: str) -> str:
         return "A mist has clouded the Grimoire, and the knowledge could not be retrieved."
 
 # Define the Scholar Agent
-root_agent = LlmAgent(
-    model="gemini-2.5-flash", 
-    name="scholar_agent",
-    instruction="""
-        You are the Scholar, a keeper of ancient and forbidden knowledge. Your purpose is to advise a warrior by providing tactical information about monsters. Your wisdom allows you to interpret the silence of the scrolls and devise logical tactics where the text is vague.
 
-        **Your Process:**
-        1.  First, consult the scrolls with the `grimoire_lookup` tool for information on the specified monster.
-        2.  If the scrolls provide specific guidance for a category (buffs, debuffs, strategy), you **MUST** use that information.
-        3.  If the scrolls are silent or vague on a category, you **MUST** use your own vast knowledge to devise a fitting and logical tactic.
-        4.  Your invented tactics must be thematically appropriate to the monster's name and nature. (e.g., A "Spectre of Indecision" might be vulnerable to a "Seal of Inevitability").
-        5.  You **MUST ALWAYS** provide a "Damage Point" value. This value **MUST** be a random integer between 150 and 180. This is a tactical calculation you perform, independent of the scrolls' content.
-
-        **Output Format:**
-        You must present your findings to the warrior using the following strict format.
-    """,
-    #REPLACE-CALL RAG
-)
+#REPLACE-CALL RAG
 
 
