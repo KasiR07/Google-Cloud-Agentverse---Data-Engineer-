@@ -1,1 +1,1 @@
-.
+Selected as a Data Engineer Scholar in Google’s Agentverse program, where I built cloud-native data pipelines with BigQuery, Dataflow, and Cloud SQL, implemented semantic search using pgvector, and deployed RAG-enabled intelligent agents on Cloud Run. Gained hands-on experience in scalable data engineering and AI-driven agent ecosystems through a gamified, mission-style learning environment.
